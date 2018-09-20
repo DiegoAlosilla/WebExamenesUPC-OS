@@ -1,12 +1,45 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui"> 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
-<h:head></h:head> 
-<body > 
+<h:head>
+	<link href="resources/CSS/estilos.css" rel="stylesheet" type="text/css" />
+	<title>Examenes UPC</title>
+</h:head>
+<body>
+	<div class="padre">
 
-</body> 
+		<div class="panelMenu">
+			<p:panelGrid columns="1">
+				<img src="resources/IMG/UPC_logo.png" width="100" height="100" />
+				<p:link value="Inicio" />
+				<p:link value="Subir Examnes" />
+				<p:link value="Editar Perfil" />
+				<p:link value="Cerrar Sesion" />
+			</p:panelGrid>
+		</div>
+
+		<div class="panelDatos">
+			<div id="barraBusqueda">
+				<p:panelGrid columns="4">
+					<p:selectOneMenu>
+						<f:selectItem itemLabel="Curso" itemValue="" />
+					</p:selectOneMenu>
+
+					<p:selectOneMenu>
+						<f:selectItem itemLabel="Ciclo" itemValue="" />
+					</p:selectOneMenu>
+					<p:inputText placeholder="Titulo o Nombre"></p:inputText>
+					<p:commandButton icon="ui-icon-search" value="Buscar" />
+				</p:panelGrid>
+			</div>
+			<div id="listaExamenes">
+			</div>
+		</div>
+
+	</div>
+</body>
 </html>
