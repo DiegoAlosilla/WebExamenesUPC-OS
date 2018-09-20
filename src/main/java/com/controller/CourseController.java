@@ -22,12 +22,10 @@ public class CourseController implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	
+
 	@Inject
 	private ICourseService courseService;
-	
-	
+
 	private List<Course> courses;
 	private Course course;
 	private Course courseSelection;
@@ -41,16 +39,16 @@ public class CourseController implements Serializable {
 		this.getAllCourses();
 	}
 
-	//Action
+	// Action
 	public void cleanCourse() {
-		course=new Course();
+		course = new Course();
 	}
-	
+
 	public String newCourse() {
 		this.cleanCourse();
 		return "index?faces-redirect=true";
 	}
-	
+
 	public String editCourse() {
 		String rpta = "";
 
@@ -58,22 +56,22 @@ public class CourseController implements Serializable {
 			this.course = this.courseSelection;
 			rpta = "index?faces-redirect=true";
 		} else {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,
-					"Curso no seleccionado", "Curso no seleccionado"));
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_INFO, "Curso no seleccionado", "Curso no seleccionado"));
 		}
 
 		return rpta;
 	}
-	
-	//Controller-Service
+
+	// Controller-Service
 	public void getAllCourses() {
 		try {
-			courses=courseService.getAllCourses();
+			courses = courseService.getAllCourses();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void reportCourseByName() {
 		try {
 			courses = courseService.getAllCoursesByName(course.getCourse());
@@ -81,7 +79,7 @@ public class CourseController implements Serializable {
 			// TODO: handle exception
 		}
 	}
-	
+
 	public void saveCourse() {
 		try {
 			courseService.saveCourse(course);
@@ -95,7 +93,7 @@ public class CourseController implements Serializable {
 					new FacesMessage(FacesMessage.SEVERITY_INFO, e.getMessage(), e.getMessage()));
 		}
 	}
-	
+
 	public void updateCourse() {
 		try {
 			courseService.updateCourse(course);
@@ -107,9 +105,9 @@ public class CourseController implements Serializable {
 					new FacesMessage(FacesMessage.SEVERITY_INFO, e.getMessage(), e.getMessage()));
 		}
 	}
-	
-	//get set 
-	
+
+	// get set
+
 	public List<Course> getCourses() {
 		return courses;
 	}
@@ -133,6 +131,5 @@ public class CourseController implements Serializable {
 	public void setCourseSelection(Course courseSelection) {
 		this.courseSelection = courseSelection;
 	}
-	
-	
+
 }

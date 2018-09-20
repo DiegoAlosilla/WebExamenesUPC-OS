@@ -42,7 +42,7 @@ public class CourseRepository implements Serializable, ICourseRepository{
 	@Override
 	public List<Course> findAll() throws Exception {
 		List<Course> courses = new ArrayList<>();
-		Query query = em.createQuery("SELECT c FROM Category c");
+		Query query = em.createQuery("SELECT c FROM Course c");
 		courses = (List<Course>) query.getResultList();
 		return courses;
 	}
@@ -52,7 +52,7 @@ public class CourseRepository implements Serializable, ICourseRepository{
 	@Override
 	public List<Course> findAll(String name) throws Exception {
 		List<Course> courses = new ArrayList<>();
-		Query query = em.createQuery("SELECT c FROM Category c WHERE c.name LIKE ?1");
+		Query query = em.createQuery("SELECT c FROM Course c WHERE c.course LIKE ?1");
 		query.setParameter(1, '%'+name+'%');
 		courses = (List<Course>) query.getResultList();
 		return courses;

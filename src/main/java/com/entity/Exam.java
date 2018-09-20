@@ -40,6 +40,7 @@ public class Exam implements Serializable{
 
 	
 	
+	
 	//get-set
 	public int getIdExam() {
 		return idExam;
@@ -80,8 +81,4 @@ public class Exam implements Serializable{
 	public void setCourse(Course course) {
 		this.course = course;
 	}
-	
-	
-		
-
 }

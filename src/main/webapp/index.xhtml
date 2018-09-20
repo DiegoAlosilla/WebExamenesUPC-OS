@@ -25,13 +25,20 @@
 		<div class="panelDatos">
 			<div id="barraBusqueda">
 				<p:panelGrid columns="4">
-					<p:selectOneMenu>
+				
+					<p:selectOneMenu value="#{courseController.course}" 
+					converter="omnifaces.SelectItemsConverter">
 						<f:selectItem itemLabel="Curso" itemValue="" />
+						
+						<f:selectItems value="#{courseController.courses}"
+						var="c" itemLabel="#{c.course}" itemValue="#{c}" />
+						
 					</p:selectOneMenu>
 
 					<p:selectOneMenu>
 						<f:selectItem itemLabel="Ciclo" itemValue="" />
 					</p:selectOneMenu>
+					
 					<p:inputText placeholder="Titulo o Nombre"></p:inputText>
 					<p:commandButton icon="ui-icon-search" value="Buscar" />
 				</p:panelGrid>
